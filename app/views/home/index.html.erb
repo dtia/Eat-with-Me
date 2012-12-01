@@ -3,8 +3,6 @@
 
 	<h3>Choose your date:</h3>
 	<%= form_tag("/home/search", :method => "get") do %>
-  <div class="row">
-    <div class="span6">
       <%= label_tag(:city, "City") %> 
 	    <%= select_tag('gender', options_for_select([['',''], ['San Francisco', 'San Francisco'], ['Los Angeles', 'Los Angeles']])) %>
 	  </div>
