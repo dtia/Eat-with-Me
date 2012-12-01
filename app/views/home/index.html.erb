@@ -1,33 +1,42 @@
 <html>
+
+
 	<h1>Choose your date:</h1>
 	<%= form_tag("/home/search", :method => "get") do %>
-		<%= label_tag(:city, "City") %> <!-- Mandatory field -->
-		<%= text_field_tag(:city)%>
-		<%= label_tag(:restaurant, "Restaurant")%>
-		<%= text_field_tag(:restaurant)%>
-		<%= label_tag(:cuisine, "Cuisine")%>
-		<%= text_field_tag(:cuisine)%>
-		<%= label_tag(:gender, "Gender")%>
-		<%= text_field_tag(:gender)%>
-		<%= label_tag(:gender_target, "Looking for")%> <!-- Mandatory field -->
-		<%= text_field_tag(:gender_target) %>
-		<%= label_tag(:date, "Date")%>
-		<%= text_field_tag(:date) %>
-		<%= label_tag(:name, "Name")%>
-		<%= text_field_tag(:name) %>
-		<%= submit_tag("Search restaurants")%>
+      <%= label_tag(:city, "City") %> 
+	    <%= text_field_tag(:city)%>
+	  </div>
+	  <div class="span6">
+	    <%= label_tag(:restaurant, "Restaurant")%>
+	    <%= text_field_tag(:restaurant)%>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="span6">
+	    <%= label_tag(:cuisine, "Cuisine")%>
+	    <%= text_field_tag(:cuisine)%>
+	  </div>
+	  <div class="span6">
+	    <%= label_tag(:gender, "Gender")%>
+	    <%= select_tag('gender', options_for_select([['Female', 'Female'], ['Male', 'Male']], 2)) %>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="span6">
+	    <%= label_tag(:gender_target, "Looking for")%> 
+	    <%= select_tag('gender_target', options_for_select([['Female', 'Female'], ['Male', 'Male']], 2)) %>
+	  </div>
+	  <div class="span6">
+	    <%= label_tag(:date, "Date")%>
+	    <%= text_field_tag(:date) %>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="span12">
+	    <%= submit_tag("Search restaurants")%>
+	  </div>
+	</div>
 	<% end %>
-	
-	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-	  <li><a tabindex="-1" href="#">Action</a></li>
-	  <li><a tabindex="-1" href="#">Another action</a></li>
-	  <li><a tabindex="-1" href="#">Something else here</a></li>
-	  <li class="divider"></li>
-	  <li><a tabindex="-1" href="#">Separated link</a></li>
-	</ul>
-
-	<% select("post", "category", 	options_for_select([["Dollar", "$"], ["Kroner", "DKK"]]), {:include_blank => true}) %>
-
 
 	
 </html>
