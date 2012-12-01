@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2012-11-28
+  time: 2012-11-28 16:33:06
+  restaurant_id: 1
+  suggestor_id: 1
+  acceptor_id: 1
+
+two:
+  date: 2012-11-28
+  time: 2012-11-28 16:33:06
+  restaurant_id: 1
+  suggestor_id: 1
+  acceptor_id: 1
