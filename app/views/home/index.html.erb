@@ -1,12 +1,12 @@
 <html>
 
 
-	<h1>Choose your date:</h1>
+	<h3>Choose your date:</h3>
 	<%= form_tag("/home/search", :method => "get") do %>
   <div class="row">
     <div class="span6">
       <%= label_tag(:city, "City") %> 
-	    <%= text_field_tag(:city)%>
+	    <%= select_tag('gender', options_for_select([['',''], ['San Francisco', 'San Francisco'], ['Los Angeles', 'Los Angeles']])) %>
 	  </div>
 	  <div class="span6">
 	    <%= label_tag(:restaurant, "Restaurant")%>
@@ -20,13 +20,13 @@
 	  </div>
 	  <div class="span6">
 	    <%= label_tag(:gender, "Gender")%>
-	    <%= select_tag('gender', options_for_select([['Female', 'Female'], ['Male', 'Male']], 2)) %>
+	    <%= select_tag('gender', options_for_select([['',''], ['Female', 'Female'], ['Male', 'Male']])) %>
 	  </div>
 	</div>
 	<div class="row">
 	  <div class="span6">
 	    <%= label_tag(:gender_target, "Looking for")%> 
-	    <%= select_tag('gender_target', options_for_select([['Female', 'Female'], ['Male', 'Male']], 2)) %>
+	    <%= select_tag('gender_target', options_for_select([['',''], ['Female', 'Female'], ['Male', 'Male']])) %>
 	  </div>
 	  <div class="span6">
 	    <%= label_tag(:date, "Date")%>
