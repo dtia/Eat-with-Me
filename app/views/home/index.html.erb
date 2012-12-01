@@ -20,13 +20,13 @@
 		  </div>
 		  <div class="span6">
 		    <%= label_tag(:gender, "Gender")%>
-		    <%= select_tag('gender', options_from_collection_for_select(["Male", "Female"], 'id', 'name') %>
+		    <%= select_tag('gender', options_from_collection_for_select(Array.new(["Male", "Female"]), 'id', 'name') %>
 		  </div>
 		</div>
 		<div class="row">
 		  <div class="span6">
 		    <%= label_tag(:gender_target, "Looking for")%> <!-- Mandatory field -->
-		    <%= select_tag('gender', options_from_collection_for_select(["Male", "Female"], 'id', 'name') %>
+		    <%= select_tag('gender', options_from_collection_for_select(Array.new(["Male", "Female"]), 'id', 'name') %>
 		  </div>
 		  <div class="span6">
 		    <%= label_tag(:date, "Date")%>
