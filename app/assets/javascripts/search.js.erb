@@ -1,0 +1,13 @@
+function showRestaurantHistory() {
+	console.log("in rest history")
+	$("#description").html("random description");
+	$("#bio").removeClass("active");
+	$("#history").addClass("active");
+}
+
+function showBio(bio) {
+	console.log("in bio");
+	$("#description").html(bio);
+	$("#history").removeClass("active");
+	$("#bio").addClass("active");
+}
