@@ -20,13 +20,13 @@
 						<div class="navbar">
 						  <div class="navbar-inner">
 						    <ul class="nav">
-						      <li id="bio" class="active" onclick="showBio('<%= @user_hash[listing.suggestor_id].description %>')"><a href="#">Bio</a></li>
-						      <li id="history"><a href="#" onclick="showRestaurantHistory()">History</a></li>
+						      <li id="bio<%= @user_hash[listing.suggestor_id].id %>" class="active" onclick="showBio('<%= @user_hash[listing.suggestor_id].id %>', '<%= @user_hash[listing.suggestor_id].description %>')"><a href="#">Bio</a></li>
+						      <li id="history<%= @user_hash[listing.suggestor_id].id %>"><a href="#" onclick="showRestaurantHistory('<%= @user_hash[listing.suggestor_id].id %>')">History</a></li>
 						    </ul>
 						  </div>
 						</div>
 						
-					  <div id="description" class="modal-body">
+					  <div id="description<%= @user_hash[listing.suggestor_id].id %>" class="modal-body">
 					    <p><%= @user_hash[listing.suggestor_id].description %></p>
 					  </div>
 					  <div class="modal-footer">
