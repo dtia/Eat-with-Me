@@ -48,8 +48,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
           <h3 id="myModalLabel"><%= res.name %></h3>
         </div>
-        <div class="modal-body">
-          <p>One fine body…</p>
+        <div class="modal-body restaurantmodal<%= @restaurant_locu_hash[res.id] %>">
         </div>
         <div class="modal-footer">
           <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -58,10 +57,14 @@
       <script>
       $("#restaurant<%= res.id %>").ready(function(){
         var locu_id = "<%= @restaurant_locu_hash[res.id] %>";
-        alert(locu_id);
-        $.getJSON("/locuvenue/" + locu_id + ".json", function(data) {
-        //  alert(data.objects.phone);
-        });
+        if (locu_id !== undefined && locu_id != '') {
+          $.getJSON("/locuvenue/" + locu_id + ".json", function(data) {
+            $(".restaurantmodal<%= @restaurant_locu_hash[res.id] %>").append(data.objects[0].street_address + '<br/>');
+            $(".restaurantmodal<%= @restaurant_locu_hash[res.id] %>").append(data.objects[0].phone + '<br/>');
+            $(".restaurantmodal<%= @restaurant_locu_hash[res.id] %>").append(data.objects[0].long + '<br/>');
+            $(".restaurantmodal<%= @restaurant_locu_hash[res.id] %>").append(data.objects[0].lat + '<br/>');
+          });
+        }
       });
       </script>
     <% end %>
