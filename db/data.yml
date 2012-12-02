@@ -1,0 +1,81 @@
+
+---
+reservations:
+  columns:
+  - id
+  - date
+  - time
+  - restaurant_id
+  - suggestor_id
+  - acceptor_id
+  - created_at
+  - updated_at
+  records: 
+  - - '6'
+    - '2012-12-18'
+    - 
+    - '4'
+    - '517172868'
+    - 
+    - '2012-12-02 04:45:21.635348'
+    - '2012-12-02 04:45:21.635348'
+
+---
+restaurants:
+  columns:
+  - id
+  - name
+  - city
+  - created_at
+  - updated_at
+  - cuisine
+  records: 
+  - - '3'
+    - Tommy's
+    - San Francisco
+    - '2012-12-02 03:06:16.680189'
+    - '2012-12-02 03:06:16.680189'
+    - ''
+  - - '4'
+    - Sushi Rock
+    - San Francisco
+    - '2012-12-02 04:13:32.316143'
+    - '2012-12-02 04:13:32.316143'
+    - ''
+
+---
+users:
+  columns:
+  - id
+  - name
+  - age
+  - gender
+  - city
+  - created_at
+  - updated_at
+  - gender_target
+  records: 
+  - - '517172868'
+    - Derek Tia
+    - 
+    - male
+    - San Francisco
+    - '2012-12-02 04:45:21.615071'
+    - '2012-12-02 04:45:21.615071'
+    - male
+  - - '12964'
+    - Perrine Zen
+    - 
+    - female
+    - San Francisco
+    - '2012-12-02 04:45:21.615071'
+    - '2012-12-02 04:45:21.615071'
+    - male
+  - - '12964'
+    - Perrine Zen
+    - 
+    - female
+    - San Francisco
+    - '2012-12-02 04:45:21.615071'
+    - '2012-12-02 04:45:21.615071'
+    - male
