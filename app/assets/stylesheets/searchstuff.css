@@ -1,3 +1,19 @@
+#gender, #gender_target {
+	float: left;
+	margin: 10px 20px 10px 0;
+	font-weight: bold;
+}
+
+.centerelement {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.spacerow {
+	margin: 20px 0 20px 0;
+}
+
 #header_logo {
 	float: left;
 }

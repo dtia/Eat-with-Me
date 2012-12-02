@@ -64,37 +64,32 @@
   </head>
   <body>
 
-	    <h3>Eat With Me!</h3>
+	    <h3>Make new friends who enjoy dining out as much as you do!</h3>
 	    <%= form_tag("/home/search", :method => "get", :id => 'reservationsearch') do %>
 	    
 	    <div class="row-fluid">
 	      <div class="span12">
-	        <%= label_tag(:restaurant, "Restaurant")%>
-	        <%= text_field_tag(:restaurant)%>
+	        <%= text_field_tag(:restaurant, "Where do you want to eat?")%>
 	        <a href="#restaurant-modal" id="getrestaurantname" name="getrestaurantname" role="button" class="btn" data-toggle="modal" 
 	          style="padding-left: 8px; padding-top: 8px; height: 13px; width: 10px; margin-top: 0px; position: relative; top: -5px;"></a>
 	      </div>
 	      
 	    </div>
 	    
-	    <div class="row-fluid">
-	      <div class="span6">
-	        <%= label_tag(:gender, "I am a")%>
+	    <div class="row-fluid spacerow">
+	        <%= label_tag(:gender, "I am a", :id => "gender")%>
 	        <%= select_tag('gender', options_for_select([['',''], ['Female', 'female'], ['Male', 'male']])) %>
-	      </div>
-	      <div class="span6">
-	        <%= label_tag(:gender_target, "And I'm interested in")%> 
+	        <%= label_tag(:gender_target, "interested in meeting", :id => "gender_target")%> 
 	        <%= select_tag('gender_target', options_for_select([['',''], ['Women', 'women'], ['Men', 'men'], ['Both', 'Both']])) %>
-	      </div>
+
 	    </div>
 	    <div class="row-fluid">
 	      <div class="span12">
-	        <%= label_tag(:date, "Date")%>
-	        <%= text_field_tag(:date) %>
+	        <%= text_field_tag :date, "Choose date" %>
 	      </div>
 	    </div>
 
-	    <div class="row-fluid">
+	    <div class="row-fluid centerelement">
 	      <div class="span12">
 			    <%= hidden_field_tag :uid, "" %>
 			    <%= hidden_field_tag :name, "" %>
