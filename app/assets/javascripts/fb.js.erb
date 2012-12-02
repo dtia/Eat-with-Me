@@ -54,9 +54,7 @@ function getUserData(loginStatusResponse) {
 }
 
 function sendUserId(url) {
-	$.get(url, { user_id: uid }).complete(function(resp) { 
-		console.log('done!');
-	});
+	$("#my_meals").attr("href", "/home/search_my_meals?user_id=" + uid);	
 }
 
 function setUserInfoOnFields(userInfo) {

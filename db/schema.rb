@@ -26,10 +26,9 @@ ActiveRecord::Schema.define(:version => 20121202153956) do
   create_table "restaurants", :force => true do |t|
     t.text     "name"
     t.text     "city"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.text     "cuisine"
-    t.text     "description"
     t.text     "locu_id"
   end
 
