@@ -37,20 +37,19 @@
       $("#restaurantsearch").click(function() {
         var cuisine = $("#cuisine").val();
         var city = $("#city").val();
+        
         $.getJSON('locu.json?cuisine=' + cuisine +'&city=' + city, function(data) {
-          
           var restaurants = data.objects;
           $.each(restaurants, function(key, val) {
-            
               $('#restaurantdrop').append($("<option></option>").attr("value",val.name).text(val.name));
             });
-          
-          $("#city-row").css("display", "none");
-          $("#cuisine-row").css("display", "none");
-          $("#restaurant-drop-row").css("display", "inline");
-          $("#restaurantsearch").css("display", "none");
-          $("#restaurantchoose").css("display", "inline");
         });
+        
+        $("#city-row").css("display", "none");
+        $("#cuisine-row").css("display", "none");
+        $("#restaurant-drop-row").css("display", "inline");
+        $("#restaurantsearch").css("display", "none");
+        $("#restaurantchoose").css("display", "inline");
       });
       
       $("#restaurantchoose").click(function() {
