@@ -27,12 +27,6 @@ class HomeController < ApplicationController
     create_user_hash
     create_restaurant_hash
     
-    @restaurants = Restaurant.find(:all, :select => 'id, locu_id')
-    @restaurant_locu_hash = Hash.new
-    for restaurant in @restaurants do
-      @restaurant_hash[restaurant.id] = restaurant.locu_id
-    end
-    
     # if listing doesn't exist, create one
     if @reservations.length == 0
       uid = User.get_or_create_user(uid, name, city, gender, gender_target)
