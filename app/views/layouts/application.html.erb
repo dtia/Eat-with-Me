@@ -11,11 +11,13 @@
        <div class="navbar-inner">
 			<%= image_tag('eat-with-me-logo.png', :size => "40x40", :id => "header_logo") %>
 			<a id ="eatwithmetitle" class="brand" href="/home">Eat with Me</a>
-			<div id="login-button-box">
-				<div class="fb-login-button" scope="user_location,friends_location,friends_checkins,friends_about_me" >Login</div>
-			</div>
 			<ul class="nav">
 		      <li><a id="my_meals" href="" onclick="sendUserId('/home/search_my_meals')">My Meals</a></li>
+			  <li>
+			  	<div id="login-button-box">
+					<div class="fb-login-button" scope="user_location,friends_location,friends_checkins,friends_about_me" >Login</div>
+				</div>
+			  </li>
 		    </ul>
        </div>
   </div>
