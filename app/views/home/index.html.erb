@@ -2,6 +2,11 @@
 
 
 	<h1>Choose your date:</h1>
+	
+	<div id="login-button-box" class="buttonbox header">
+        <div class="fb-login-button" scope="user_location,friends_location,friends_checkins,friends_about_me" >Login with Facebook</div>
+	</div>
+	
 	<%= form_tag("/home/search", :method => "get") do %>
       <%= label_tag(:city, "City") %> 
 	    <%= text_field_tag(:city)%>

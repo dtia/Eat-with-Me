@@ -1,4 +1,16 @@
 <html>
 	<h1>Search Results</h1>
-	
+	<div id="listings">
+		<table>
+			<tr>
+				<th>Listings</th>
+			</tr>
+
+			<% for listing in @reservations %>
+			  <tr>
+				<td><span id="entry"><%=h listing.id %></span></td>
+			  </tr>
+			<% end %>
+		</table>
+	</div>
 </html>
