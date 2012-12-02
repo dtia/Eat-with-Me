@@ -1,0 +1,2 @@
+module LocuHelper
+end
