@@ -10,7 +10,13 @@
             gender: "required"
           }
         });
+        
         $( "#date" ).datepicker();
+        
+        $("#cuisine").tagit({
+            availableTags: ["c++", "java", "php", "javascript", "ruby", "python", "c"]
+        });
+        
       });
       </script>
   </head>
