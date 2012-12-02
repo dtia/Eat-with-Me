@@ -1,5 +1,7 @@
 <html>
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&mkt=de-de" type="text/javascript" charset="UTF-8"></script>
 
   </head>
   <body>
@@ -48,7 +50,10 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
           <h3 id="myModalLabel"><%= res.name %></h3>
         </div>
-        <div class="modal-body restaurantmodal<%= @restaurant_locu_hash[res.id] %>">
+        <div class="modal-body">
+          <div class="restaurantmodal<%= @restaurant_locu_hash[res.id] %>"></div>
+          <div id="map<%= @restaurant_locu_hash[res.id] %>" style="position: relative; width: 300px; height: 300px;"></div>
+          
         </div>
         <div class="modal-footer">
           <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -61,8 +66,35 @@
           $.getJSON("/locuvenue/" + locu_id + ".json", function(data) {
             $(".restaurantmodal<%= @restaurant_locu_hash[res.id] %>").append(data.objects[0].street_address + '<br/>');
             $(".restaurantmodal<%= @restaurant_locu_hash[res.id] %>").append(data.objects[0].phone + '<br/>');
-            $(".restaurantmodal<%= @restaurant_locu_hash[res.id] %>").append(data.objects[0].long + '<br/>');
-            $(".restaurantmodal<%= @restaurant_locu_hash[res.id] %>").append(data.objects[0].lat + '<br/>');
+            
+            var map = new Microsoft.Maps.Map(
+                    document.getElementById("map<%= @restaurant_locu_hash[res.id] %>"),
+                    {
+                        credentials: "AoWSfs8ktMhbtsUuGrlCQQYkU6z-sV5f0zgTQUnIar6VixPPT2ewipAsRKIjieY8",
+                        mapTypeId: Microsoft.Maps.MapTypeId.road
+                    }
+                );
+                
+                var pins = new Microsoft.Maps.EntityCollection();
+                    var position = new Microsoft.Maps.Location(data.objects[0].lat, data.objects[0].long);
+
+                    // Creates a Pushpin
+                    var pin = new Microsoft.Maps.Pushpin(position);
+
+                    // Adds the pin to the collection instead of adding it directly to the Map
+                    pins.push(pin);
+                    
+
+                // Adds all pins at once
+                map.entities.push(pins);
+                
+                var options = map.getOptions();
+                options.bounds = null;
+                options.center = position;
+                options.zoom = 14;
+                map.setView(options);
+                
+
           });
         }
       });
