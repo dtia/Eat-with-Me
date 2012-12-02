@@ -41,7 +41,7 @@
         $.getJSON('locu.json?cuisine=' + cuisine +'&city=' + city, function(data) {
           var restaurants = data.objects;
           $.each(restaurants, function(key, val) {
-              $('#restaurantdrop').append($("<option></option>").attr("value",val.name).text(val.name));
+              $('#restaurantdrop').append($("<option></option>").attr("value",val.id).text(val.name));
             });
         });
         
@@ -53,7 +53,9 @@
       });
       
       $("#restaurantchoose").click(function() {
-          $("#restaurant").val($("#restaurantdrop").val());
+          var locu_id = $("#restaurantdrop").val();
+          $("#locu_restaurant_id").val(locu_id);
+          $("#restaurant").val($("#restaurantdrop option[value='" + locu_id +  "']").text());
       });
 
     });
@@ -96,11 +98,10 @@
 	      <div class="span12">
 			    <%= hidden_field_tag :uid, "" %>
 			    <%= hidden_field_tag :name, "" %>
+			    <%= hidden_field_tag :locu_restaurant_id, "" %>
 	        <%= submit_tag("Find someone to eat with me", :class => "btn")%>
 	      </div>
 	    </div>
-      
-	    
 
       <div id="restaurant-modal" class="modal hide fade in" style="display: none; ">
         <div class="modal-header">

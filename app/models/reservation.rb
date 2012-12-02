@@ -2,9 +2,9 @@ class Reservation < ActiveRecord::Base
   attr_accessible :acceptor_id, :date, :restaurant_id, :suggestor_id, :time
   validates :restaurant_id, :suggestor_id, :date, :presence => true
   
-  def self.create_listing(uid, date, restaurant, city, cuisine)
+  def self.create_listing(uid, date, restaurant, city, cuisine, locu_restaurant_id)
     # get restaurant id
-    rest_id = Restaurant.get_or_create_restaurant(restaurant, city, cuisine)
+    rest_id = Restaurant.get_or_create_restaurant(restaurant, city, cuisine, locu_restaurant_id)
     # get reservation id
     create_reservation(date, rest_id, uid)
   end

@@ -30,6 +30,9 @@ RestaurantDate::Application.routes.draw do
       get 'search'
     end
   end
+  
+  resources :locu, :only => :index
+  resources :locuvenue, :only => :show
 
   # Sample resource route with sub-resources:
   #   resources :products do
@@ -61,4 +64,6 @@ RestaurantDate::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+  
+  
 end

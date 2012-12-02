@@ -2,7 +2,7 @@ class Restaurant < ActiveRecord::Base
   attr_accessible :city, :name
   validates :name, :city, :presence => true
   
-  def self.get_or_create_restaurant(restaurant, city, cuisine)
+  def self.get_or_create_restaurant(restaurant, city, cuisine, locu_restaurant_id)
     @restaurant = Restaurant.where("name = ? and city = ?", restaurant, city)
     
     if @restaurant.empty?
@@ -10,6 +10,7 @@ class Restaurant < ActiveRecord::Base
       new_restaurant.name = restaurant
       new_restaurant.city = city
       new_restaurant.cuisine = cuisine
+      new_restaurant.locu_id = locu_restaurant_id
       new_restaurant.save
       return new_restaurant.id
     else
