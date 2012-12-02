@@ -3,10 +3,13 @@
 	<h3>Restaurant dates</h3>
 	  <div id="listings">
 		  <table>
+			  <%= @gender_ids.join ' ' %>
+			  <%= @restaurant_ids.join ' ' %>
+			  <%= @reservations.join ' ' %>
 			  <% for listing in @reservations %>
 			    <tr>
-				    <td><span id="entry"><%= listing.id %></span></td>
-				    <td><span id="entry"><%= listing.restaurant%></td>
+				    <td><span id="entry"><%= listing.restaurant_id %></span></td>
+				    <td><span id="entry"><%= listing.date%></td>
 			    </tr>
 			  <% end %>
 		  </table>

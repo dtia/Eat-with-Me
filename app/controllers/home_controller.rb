@@ -11,6 +11,12 @@ class HomeController < ApplicationController
     uid = params[:uid]
     
     # search for reservations where city is the same and "looking for" gender matches
+    if gender_target == 'men'
+      gender_target = 'male'
+    elsif gender_target == 'women'
+      gender_target = 'female'
+    end
+    
     @gender_ids = User.where(["gender = ?", gender_target])
     @restaurant_ids = Restaurant.where(["city = ?", city])     
     @reservations = Reservation.where(["restaurant_id in (?) and suggestor_id in (?)", @restaurant_ids, @gender_ids])

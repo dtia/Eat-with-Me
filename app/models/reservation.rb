@@ -10,11 +10,17 @@ class Reservation < ActiveRecord::Base
   end
   
   def self.create_reservation(date, restaurant_id, uid)
-    new_reservation = Reservation.new
-    new_reservation.date = Date.strptime date, '%m/%d/%Y'
-    new_reservation.restaurant_id = restaurant_id
-    new_reservation.suggestor_id = uid
-    new_reservation.save
-    Rails.logger.info(new_reservation.errors.inspect) 
+    @reservation = Reservation.where("restaurant_id = ? and suggestor_id = ?", restaurant_id, uid)
+    
+    if @reservation.empty?
+      new_reservation = Reservation.new
+      new_reservation.date = Date.strptime date, '%m/%d/%Y'
+      new_reservation.restaurant_id = restaurant_id
+      new_reservation.suggestor_id = uid
+      new_reservation.save
+      Rails.logger.info(new_reservation.errors.inspect)
+    end
+    
+    
   end
 end
