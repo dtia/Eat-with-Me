@@ -1,14 +1,18 @@
+<%
+require 'open-uri'
+require 'json'
+
+%>
 <html>
+  
   <div class="container">
 	<h3>Restaurant dates</h3>
 	  <div id="listings">
 		  <table>
-			  <%= @gender_ids.join ' ' %>
-			  <%= @restaurant_ids.join ' ' %>
-			  <%= @reservations.join ' ' %>
 			  <% for listing in @reservations %>
 			    <tr>
-				    <td><span id="entry"><%= listing.restaurant_id %></span></td>
+			      <td><<%= "img src=https://graph.facebook.com/" + listing.suggestor_id.to_s() + "/picture" %>></td>
+				    <td><%= username_hash[listing.suggestor_id] %></td>
 				    <td><span id="entry"><%= listing.date%></td>
 			    </tr>
 			  <% end %>
