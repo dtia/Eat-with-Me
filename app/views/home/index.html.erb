@@ -1,47 +1,64 @@
 <html>
 
+  <head>
+    <script>
+    
+      $(document).ready(function(){
+        $("#restaurantsearch").validate({
+          rules: {
+            city: "required",
+            gender: "required"
+          }
+        });
+        $( "#date" ).datepicker();
+      });
+      </script>
+  </head>
 
-	<h1>Choose your date:</h1>
-	
-	<div id="login-button-box" class="buttonbox header">
-        <div class="fb-login-button" scope="user_location,friends_location,friends_checkins,friends_about_me" >Login with Facebook</div>
-	</div>
-	
-	<%= form_tag("/home/search", :method => "get") do %>
-      <%= label_tag(:city, "City") %> 
-	    <%= text_field_tag(:city)%>
-	  </div>
-	  <div class="span6">
-	    <%= label_tag(:restaurant, "Restaurant")%>
-	    <%= text_field_tag(:restaurant)%>
-	  </div>
-	</div>
-	<div class="row">
-	  <div class="span6">
-	    <%= label_tag(:cuisine, "Cuisine")%>
-	    <%= text_field_tag(:cuisine)%>
-	  </div>
-	  <div class="span6">
-	    <%= label_tag(:gender, "Gender")%>
-	    <%= select_tag('gender', options_for_select([['Female', 'Female'], ['Male', 'Male']], 2)) %>
-	  </div>
-	</div>
-	<div class="row">
-	  <div class="span6">
-	    <%= label_tag(:gender_target, "Looking for")%> 
-	    <%= select_tag('gender_target', options_for_select([['Female', 'Female'], ['Male', 'Male']], 2)) %>
-	  </div>
-	  <div class="span6">
-	    <%= label_tag(:date, "Date")%>
-	    <%= text_field_tag(:date) %>
-	  </div>
-	</div>
-	<div class="row">
-	  <div class="span12">
-	    <%= submit_tag("Search restaurants")%>
-	  </div>
-	</div>
-	<% end %>
-
+  <body>
+    <div class="container">
+	    <h3>Choose your date:</h3>
+	    <%= form_tag("/home/search", :method => "get", :id => 'restaurantsearch') do %>
+	    <div class="row">
+	      <div class="span6">
+	        <%= label_tag(:gender, "I am a")%>
+	        <%= select_tag('gender', options_for_select([['',''], ['Female', 'Female'], ['Male', 'Male']])) %>
+	      </div>
+	      <div class="span6">
+	        <%= label_tag(:gender_target, "And I'm interested in")%> 
+	        <%= select_tag('gender_target', options_for_select([['',''], ['Female', 'Female'], ['Male', 'Male'], ['Both', 'Both']])) %>
+	      </div>
+	    </div>
+	    <div class="row">
+	      <div class="span12">
+          <%= label_tag(:city, "City") %> 
+	        <%= select_tag('city', options_for_select([['',''], ['San Francisco', 'San Francisco'], ['Los Angeles', 'Los Angeles']])) %>
+	      </div>
+	    </div>
+	  
+	    <div class="row">
+	      <div class="span6">
+	        <%= label_tag(:cuisine, "Cuisine")%>
+	        <%= text_field_tag(:cuisine)%>
+	      </div>
+	      <div class="span6">
+	        <%= label_tag(:restaurant, "Restaurant")%>
+	        <%= text_field_tag(:restaurant)%>
+	      </div>
+	    </div>
+	    <div class="row">
+	      <div class="span12">
+	        <%= label_tag(:date, "Date")%>
+	        <%= text_field_tag(:date) %>
+	      </div>
+	    </div>
+	    <div class="row">
+	      <div class="span12">
+	        <%= submit_tag("Search restaurants")%>
+	      </div>
+	    </div>
+	    <% end %>
+  </div>
+</body>
 	
 </html>
