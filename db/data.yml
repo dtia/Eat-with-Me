@@ -59,7 +59,7 @@ reservations:
     - 
     - '2012-12-02 04:45:21.635348'
     - '2012-12-02 04:45:21.635348'
-    
+
 ---
 restaurants:
   columns:
@@ -94,47 +94,8 @@ users:
   - created_at
   - updated_at
   - gender_target
+  - description
   records: 
-  - - '517172868'
-    - Derek Tia
-    - 
-    - male
-    - San Francisco
-    - '2012-12-02 04:45:21.615071'
-    - '2012-12-02 04:45:21.615071'
-    - male
-  - - '1223352'
-    - Jennifer Lu
-    - 
-    - female
-    - San Francisco
-    - '2012-12-02 04:45:21.615071'
-    - '2012-12-02 04:45:21.615071'
-    - male
-  - - '1040880022'
-    - Anna Park
-    - 
-    - female
-    - San Francisco
-    - '2012-12-02 04:45:21.615071'
-    - '2012-12-02 04:45:21.615071'
-    - male
-  - - '501796759'
-    - Lydia Pan
-    - 
-    - female
-    - San Francisco
-    - '2012-12-02 04:45:21.615071'
-    - '2012-12-02 04:45:21.615071'
-    - male
-  - - '1239856'
-    - Robin Lam
-    - 
-    - female
-    - San Francisco
-    - '2012-12-02 04:45:21.615071'
-    - '2012-12-02 04:45:21.615071'
-    - male
   - - '1221837'
     - Stephanie Chien
     - 
@@ -143,3 +104,49 @@ users:
     - '2012-12-02 04:45:21.615071'
     - '2012-12-02 04:45:21.615071'
     - male
+    - I'm a big fan of Italian food. Linguine with clams and garlic bread are my favorite dishes. Looking to adventure into Japanese cuisine.
+  - - '1223352'
+    - Jennifer Lu
+    - 
+    - female
+    - San Francisco
+    - '2012-12-02 04:45:21.615071'
+    - '2012-12-02 04:45:21.615071'
+    - male
+    - Last time I tried Brazilian food but was quite overwhelmed by the massive amounts of meat. After this experience I realized I liked healthier lighter foods.
+  - - '1239856'
+    - Robin Lam
+    - 
+    - female
+    - San Francisco
+    - '2012-12-02 04:45:21.615071'
+    - '2012-12-02 04:45:21.615071'
+    - male
+    - I am a huge fan of any sort of Japanese cuisine. Chirashi is my favorite since it is very healthy and doesn't get me too full.
+  - - '501796759'
+    - Lydia Pan
+    - 
+    - female
+    - San Francisco
+    - '2012-12-02 04:45:21.615071'
+    - '2012-12-02 04:45:21.615071'
+    - male
+    - I am an adventurous foodie. Anything from fried insects to a basic burger I'm all over it.
+  - - '517172868'
+    - Derek Tia
+    - 
+    - male
+    - San Francisco
+    - '2012-12-02 04:45:21.615071'
+    - '2012-12-02 04:45:21.615071'
+    - male
+    -
+  - - '1040880022'
+    - Anna Park
+    - 
+    - female
+    - San Francisco
+    - '2012-12-02 04:45:21.615071'
+    - '2012-12-02 04:45:21.615071'
+    - male
+    - Food is awesome. I like to try new dishes at restaurants so that I can grow my own repertoire of dishes.

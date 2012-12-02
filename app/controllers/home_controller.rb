@@ -21,10 +21,10 @@ class HomeController < ApplicationController
     @restaurant_ids = Restaurant.where(["city = ?", city])     
     @reservations = Reservation.where(["restaurant_id in (?) and suggestor_id in (?)", @restaurant_ids, @gender_ids])
     
-    @users = User.find(:all, :select => 'id, name')
-    @username_hash = Hash.new
+    @users = User.find(:all, :select => 'id, name, description')
+    @user_hash = Hash.new
     for user in @users do
-      @username_hash[user.id] = user.name
+      @user_hash[user.id] = user
     end
     
     @restaurants = Restaurant.find(:all, :select => 'id, name')
