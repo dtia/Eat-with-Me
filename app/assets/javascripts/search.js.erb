@@ -9,3 +9,10 @@ function showRestaurantHistory(user_id) {
 	$("#bio" + user_id).removeClass("active");
 	$("#history" + user_id).addClass("active");
 }
+
+function showConfirmationOverlay(user_id, user_name) {
+	$("#userInfo" + user_id + " .navbar").remove();
+	$("#userInfo" + user_id + " .modal-header").html('<h3 id="myModalLabel">Bon Apetit!</h3>');
+	$("#userInfo" + user_id + " .modal-body").html("Congratulations. You and " + user_name + " will be sharing a table now.");
+	$("#userInfo" + user_id + " .modal-footer").html('<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Done</button>');	
+}

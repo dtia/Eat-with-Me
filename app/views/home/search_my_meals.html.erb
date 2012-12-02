@@ -1,0 +1,20 @@
+<html>
+  
+  <div class="container">
+	<h3>My Opportunities to Eat</h3>
+	  <div id="listings">
+		  <table class="table table-striped">
+			  <% for listing in @my_meals %>
+			    <tr>
+					<td><<%= "img src=https://graph.facebook.com/" + listing.suggestor_id.to_s() + "/picture" %>></td>
+					<td><a href="#userInfo<%= listing.suggestor_id %>" data-backdrop="true" data-keyboard="true" data-toggle="modal"><%= @user_hash[listing.suggestor_id].name %></a></td>
+					<td><%= @restaurant_hash[listing.restaurant_id] %></td>
+					<td><%= listing.date %></td>
+			    </tr>
+			  <% end %>
+		  </table>
+		</div>
+	</div>
+	
+
+</html>

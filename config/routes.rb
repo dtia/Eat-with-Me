@@ -28,6 +28,7 @@ RestaurantDate::Application.routes.draw do
   resources :home do
     collection do
       get 'search'
+      get 'search_my_meals'
     end
   end
   

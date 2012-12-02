@@ -2,47 +2,46 @@
   <head>
 
   </head>
-  
   <body>
-    <div class="container">
-      <h3>Restaurant dates</h3>
-      <div id="listings">
-        <table class="table table-striped">
-          <% for listing in @reservations %>
-          <tr>
-            <td><<%= "img src=https://graph.facebook.com/" + listing.suggestor_id.to_s() + "/picture" %>></td>
-            <td><a href="#userInfo<%= listing.suggestor_id %>" data-backdrop="true" data-keyboard="true" data-toggle="modal"><%= @user_hash[listing.suggestor_id].name %></a></td>
-            <td><a href="#restaurant<%= listing.restaurant_id %>" data-backdrop="true" data-keyboard="true" data-toggle="modal"><%= @restaurant_hash[listing.restaurant_id] %></a></td>
-            <td><%= listing.date %></td>
-          </tr>
-          <div id="userInfo<%= listing.suggestor_id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h3 id="myModalLabel"><%= @user_hash[listing.suggestor_id].name %></h3>
-            </div>
-
-            <div class="navbar">
-              <div class="navbar-inner">
-                <ul class="nav">
-                  <li id="bio<%= @user_hash[listing.suggestor_id].id %>" class="active" onclick="showBio('<%= @user_hash[listing.suggestor_id].id %>', '<%= @user_hash[listing.suggestor_id].description %>')"><a href="#">Bio</a></li>
-                  <li id="history<%= @user_hash[listing.suggestor_id].id %>"><a href="#" onclick="showRestaurantHistory('<%= @user_hash[listing.suggestor_id].id %>')">History</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div id="description<%= @user_hash[listing.suggestor_id].id %>" class="modal-body">
-              <p><%= @user_hash[listing.suggestor_id].description %></p>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-primary">Eat with this person</button>
-              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-            </div>
-          </div>
-          <% end %>
-        </table>
-      </div>
-    </div>
-
+  <div class="container">
+	<h3>Join these people to eat</h3>
+	  <div id="listings">
+		  <table class="table table-striped">
+			  <% for listing in @reservations %>
+			    <tr>
+					<td><<%= "img src=https://graph.facebook.com/" + listing.suggestor_id.to_s() + "/picture" %>></td>
+					<td><a href="#userInfo<%= listing.suggestor_id %>" data-backdrop="true" data-keyboard="true" data-toggle="modal"><%= @user_hash[listing.suggestor_id].name %></a></td>
+					<td><%= @restaurant_hash[listing.restaurant_id] %></td>
+					<td><%= listing.date %></td>
+			    </tr>
+				<div id="userInfo<%= listing.suggestor_id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  	<div class="modal-header">
+					    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					    <h3 id="myModalLabel"><%= @user_hash[listing.suggestor_id].name %></h3>
+					</div>
+					
+						<div class="navbar">
+						  <div class="navbar-inner">
+						    <ul class="nav">
+						      <li id="bio<%= @user_hash[listing.suggestor_id].id %>" class="active" onclick="showBio('<%= @user_hash[listing.suggestor_id].id %>', '<%= @user_hash[listing.suggestor_id].description %>')"><a href="#">Bio</a></li>
+						      <li id="history<%= @user_hash[listing.suggestor_id].id %>"><a href="#" onclick="showRestaurantHistory('<%= @user_hash[listing.suggestor_id].id %>')">History</a></li>
+						    </ul>
+						  </div>
+						</div>
+						
+					  <div id="description<%= @user_hash[listing.suggestor_id].id %>" class="modal-body">
+					    <p><%= @user_hash[listing.suggestor_id].description %></p>
+					  </div>
+					  <div class="modal-footer">
+					    <button class="btn btn-primary" onclick="showConfirmationOverlay('<%= listing.suggestor_id %>', '<%= @user_hash[listing.suggestor_id].name %>')">Eat with this person</button>
+					    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+					  </div>
+				</div>
+			  <% end %>
+		  </table>
+		</div>
+	</div>
+	
     <% for res in @restaurants %>
       <% if res.id.to_s.length > 4 %>
       <div id="restaurant<%= restaurant_locu_hash[res.id] %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

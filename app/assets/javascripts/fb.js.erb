@@ -25,7 +25,7 @@ window.fbAsyncInit = function() {
    ref.parentNode.insertBefore(js, ref);
  }(document));
 
-
+var uid = '';
 function getUserData(loginStatusResponse) {
 
 	var access_token = loginStatusResponse.authResponse.accessToken;
@@ -49,16 +49,13 @@ function getUserData(loginStatusResponse) {
 			userInfo.sex = sex;
 			userInfo.meeting_sex = meeting_sex;
 			setUserInfoOnFields(userInfo);
-		}	
-		
-		// $.ajax({
-		//     url: "/user",
-		//     type: "POST",
-		//     data: {userInfo: JSON.stringify(userInfo)},
-		//     success: function(resp){
-		// 		console.log('User info posted');
-		// 	}
-		// });
+		}
+	});
+}
+
+function sendUserId(url) {
+	$.get(url, { user_id: uid }).complete(function(resp) { 
+		console.log('done!');
 	});
 }
 
