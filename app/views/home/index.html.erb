@@ -151,9 +151,13 @@
 	      </div>
 	    </div>
 	    <div class="row-fluid">
-	      <div class="span12">
+	      <div class="span6">
           <%= label_tag(:city, "City") %> 
 	        <%= select_tag('city', options_for_select([['',''], ['San Francisco', 'San Francisco'], ['Los Angeles', 'Los Angeles']])) %>
+	      </div>
+	      <div class="span6">
+	        <%= label_tag(:date, "Date")%>
+	        <%= text_field_tag(:date) %>
 	      </div>
 	    </div>
 	  
@@ -165,12 +169,6 @@
 	      <div class="span6">
 	        <%= label_tag(:restaurant, "Restaurant")%>
 	        <%= text_field_tag(:restaurant)%>
-	      </div>
-	    </div>
-	    <div class="row-fluid">
-	      <div class="span12">
-	        <%= label_tag(:date, "Date")%>
-	        <%= text_field_tag(:date) %>
 	      </div>
 	    </div>
 	    <div class="row-fluid">
