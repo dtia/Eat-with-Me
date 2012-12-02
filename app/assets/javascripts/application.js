@@ -16,3 +16,4 @@
 //= require bootstrap.min
 //= require fb
 //= require home
+//= require search
