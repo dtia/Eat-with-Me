@@ -8,14 +8,17 @@
 </head>
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top">
-       <div class="navbar-inner">
-			<%= image_tag('eat-with-me-logo.png', :size => "40x40", :id => "header_logo") %>
-			<a id ="eatwithmetitle" class="brand" href="/index">Eat with Me</a>
-			<div id="login-button-box">
-				<div class="fb-login-button" scope="user_location,friends_location,friends_checkins,friends_about_me" >Login</div>
-			</div>
-       </div>
-  </div>
+    <%= image_tag('eat-with-me-logo.png', :size => "40x40", :id => "header_logo") %>
+      <div class="navbar-inner">
+        <a id ="eatwithmetitle" class="brand" href="/index">Eat with Me</a>
+          <ul class="nav">
+            <li class="active">
+              <div id="login-button-box">
+                <div class="fb-login-button" scope="user_location,friends_location,friends_checkins,friends_about_me" >Login with Facebook</div>
+              </div>
+            </li>
+          </ul>
+        </div>
   <div class="container">
     <div class="hero-unit">
       <%= yield %>
