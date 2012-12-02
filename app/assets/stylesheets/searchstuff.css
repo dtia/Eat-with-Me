@@ -10,13 +10,4 @@ label.error {
 
 .table {
 	width: 80%;
-
-a#getrestaurantname {
-    padding-left: 5px;
-    padding-top: 3px;
-    height: 25px;
-    width: 30px;
-    margin-top: 0px;
-    position: relative;
-    top: -5px;
 }
