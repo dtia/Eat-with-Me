@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>RestaurantDate</title>
+  <link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,8 +10,8 @@
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top">
        <div class="navbar-inner">
-			<%= image_tag('eat-with-me-logo.png', :size => "40x40", :id => "header_logo") %>
-			<a id ="eatwithmetitle" class="brand" href="/home">Eat with Me</a>
+			
+			<a id ="eatwithmetitle" class="brand" href="/home" style="font-family: 'Parisienne', cursive;margin-left:50px;font-size:40px;">Eat with Me</a>
 			<div id="login-button-box">
 				<div class="fb-login-button" scope="user_location,friends_location,friends_checkins,friends_about_me" >Login</div>
 			</div>
