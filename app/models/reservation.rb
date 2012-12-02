@@ -11,7 +11,7 @@ class Reservation < ActiveRecord::Base
   
   def self.create_reservation(date, restaurant_id, uid)
     new_reservation = Reservation.new
-    new_reservation.date = date.to_time
+    new_reservation.date = Date.strptime date, '%m/%d/%Y'
     new_reservation.restaurant_id = restaurant_id
     new_reservation.suggestor_id = uid
     new_reservation.save
