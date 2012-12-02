@@ -34,7 +34,13 @@
       });
       
       $("#restaurantsearch").click(function() {
-        alert("Handler for .click() called.");
+        $.getJSON('locu.json?cuisine=Sushi&city=San%20Francisco', function(data) {
+          
+          $.each(data, function(key, val) {
+              alert(key);
+            });
+            
+        });
       });
 
     });
