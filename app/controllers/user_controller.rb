@@ -10,6 +10,6 @@ class UserController < ApplicationController
     profile_pic = user_info["pic_square"]
     meeting_sex = user_info["sex"]
     
-    User.create_user(name, city, sex)
+    #User.create_user(name, city, sex)
   end
 end
