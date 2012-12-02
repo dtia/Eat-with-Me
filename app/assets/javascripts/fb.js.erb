@@ -47,18 +47,26 @@ function getUserData(loginStatusResponse) {
 			userInfo.name = name;
 			userInfo.pic = pic;
 			userInfo.sex = sex;
-			userInfo.meeting_sex = meeting_sex
+			userInfo.meeting_sex = meeting_sex;
+			setUserInfoOnFields(userInfo);
 		}	
 		
-		$.ajax({
-		    url: "/user",
-		    type: "POST",
-		    data: {userInfo: JSON.stringify(userInfo)},
-		    success: function(resp){
-				console.log('User info posted');
-			}
-		});
+		// $.ajax({
+		//     url: "/user",
+		//     type: "POST",
+		//     data: {userInfo: JSON.stringify(userInfo)},
+		//     success: function(resp){
+		// 		console.log('User info posted');
+		// 	}
+		// });
 	});
+}
+
+function setUserInfoOnFields(userInfo) {
+	$("#gender").val(userInfo.sex);
+	$("#gender_target").val(userInfo.meeting_sex);
+	$("#uid").val(userInfo.uid);
+	$("#name").val(userInfo.name);
 }
 
 function hideLoginButton() {

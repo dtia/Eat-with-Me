@@ -4,15 +4,17 @@ class Reservation < ActiveRecord::Base
   
   def self.create_listing(uid, date, restaurant, city, cuisine)
     # get restaurant id
-    rest_id = Restaurant.create_restaurant(restaurant, city, cuisine)
+    rest_id = Restaurant.get_or_create_restaurant(restaurant, city, cuisine)
     # get reservation id
     create_reservation(date, rest_id, uid)
   end
   
   def self.create_reservation(date, restaurant_id, uid)
     new_reservation = Reservation.new
-    new_reservation.date = date
+    new_reservation.date = date.to_time
     new_reservation.restaurant_id = restaurant_id
     new_reservation.suggestor_id = uid
+    new_reservation.save
+    Rails.logger.info(new_reservation.errors.inspect) 
   end
 end

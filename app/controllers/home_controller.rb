@@ -8,6 +8,7 @@ class HomeController < ApplicationController
     gender_target = params[:gender_target]
     date = params[:date]
     name = params[:name]
+    uid = params[:uid]
     
     # search for reservations where city is the same and "looking for" gender matches
     @gender_ids = User.where(["gender = ?", gender_target])
@@ -16,7 +17,8 @@ class HomeController < ApplicationController
     
     # if listing doesn't exist, create one
     if @reservations.length == 0
-      uid = User.create_user(name, city, gender)
+      uid = User.get_or_create_user(uid, name, city, gender)
+      restaurant_id = Restaurant.get_or_create_restaurant(restaurant, city, cuisine)
       Reservation.create_listing(uid, date, restaurant, city, cuisine)
     end
   end
