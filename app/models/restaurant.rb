@@ -3,7 +3,10 @@ class Restaurant < ActiveRecord::Base
   validates :name, :city, :presence => true
   
   def self.get_or_create_restaurant(restaurant, city, cuisine, locu_restaurant_id)
-    @restaurant = Restaurant.where("name = ? and city = ?", restaurant, city)
+    puts restaurant
+    puts city
+    puts locu_restaurant_id
+    @restaurant = Restaurant.where("name = ? and city = ? and locu_id = ?", restaurant, city, locu_restaurant_id)
     
     if @restaurant.empty?
       new_restaurant = Restaurant.new
