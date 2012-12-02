@@ -10,8 +10,9 @@ label.error {
 
 .table {
 	width: 80%;
+}
 
-a#getrestaurantname {
+#getrestaurantname {
     padding-left: 5px;
     padding-top: 3px;
     height: 25px;
@@ -19,4 +20,9 @@ a#getrestaurantname {
     margin-top: 0px;
     position: relative;
     top: -5px;
+}
+
+#eatwithmetitle {
+	font-color: white;
+	margin-left: 5px;
 }
