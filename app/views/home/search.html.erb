@@ -8,12 +8,13 @@ require 'json'
   <div class="container">
 	<h3>Restaurant dates</h3>
 	  <div id="listings">
-		  <table>
+		  <table class="table-striped">
 			  <% for listing in @reservations %>
 			    <tr>
 			      <td><<%= "img src=https://graph.facebook.com/" + listing.suggestor_id.to_s() + "/picture" %>></td>
-				    <td><%= @username_hash[listing.suggestor_id] %></td>
-				    <td><span id="entry"><%= listing.date%></td>
+				    <td><%= username_hash[listing.suggestor_id] %></td>
+				    <td><%= restaurant_hash[listing.restaurant_id]%></td>
+				    <td><%= listing.date%></td>
 			    </tr>
 			  <% end %>
 		  </table>
