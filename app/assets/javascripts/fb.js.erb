@@ -58,8 +58,10 @@ function sendUserId(url) {
 }
 
 function setUserInfoOnFields(userInfo) {
-	$("#gender").val(userInfo.sex);
-	$("#gender_target").val(userInfo.meeting_sex);
+	$('#gender option[value="' + userInfo.sex + '"]').attr('selected', true);
+    
+    $('#gender_target option[value="' + userInfo.meeting_sex + '"]').attr('selected', true);
+    
 	$("#uid").val(userInfo.uid);
 	$("#name").val(userInfo.name);
 }
