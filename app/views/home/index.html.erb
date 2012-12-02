@@ -137,7 +137,9 @@
   </head>
 
   <body>
-
+	    <div id="login-button-box" class="buttonbox header">
+	        <div class="fb-login-button" scope="user_location,friends_location,friends_checkins,friends_about_me" >Login with Facebook</div>
+		</div>
 	    <h3>Choose your date:</h3>
 	    <%= form_tag("/home/search", :method => "get", :id => 'restaurantsearch') do %>
 	    <div class="row-fluid">
