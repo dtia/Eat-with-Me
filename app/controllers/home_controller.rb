@@ -28,9 +28,9 @@ class HomeController < ApplicationController
     end
     
     @restaurants = Restaurant.find(:all, :select => 'id, name')
-    restaurant_hash = Hash.new
+    @restaurant_hash = Hash.new
     for restaurant in @restaurants do
-      restaurant_hash[restaurant.id] = restaurant.name
+      @restaurant_hash[restaurant.id] = restaurant.name
     end
     
     # if listing doesn't exist, create one
