@@ -2,3 +2,8 @@
 label.error {
     color: #f00;
 }
+
+.container ul.tagit {
+    margin-left: 0;
+    width: 350px;
+}

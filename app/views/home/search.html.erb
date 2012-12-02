@@ -1,16 +1,15 @@
 <html>
-	<h1>Search Results</h1>
-	<div id="listings">
-		<table>
-			<tr>
-				<th>Listings</th>
-			</tr>
-
-			<% for listing in @reservations %>
-			  <tr>
-				<td><span id="entry"><%=h listing.id %></span></td>
-			  </tr>
-			<% end %>
-		</table>
+  <div class="container">
+	<h3>Restaurant dates</h3>
+	  <div id="listings">
+		  <table>
+			  <% for listing in @reservations %>
+			    <tr>
+				    <td><span id="entry"><%= listing.id %></span></td>
+				    <td><span id="entry"><%= listing.restaurant%></td>
+			    </tr>
+			  <% end %>
+		  </table>
+	  </div>
 	</div>
 </html>
