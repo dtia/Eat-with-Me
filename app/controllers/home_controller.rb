@@ -21,17 +21,8 @@ class HomeController < ApplicationController
     @restaurant_ids = Restaurant.where(["city = ?", city])     
     @reservations = Reservation.where(["restaurant_id in (?) and suggestor_id in (?)", @restaurant_ids, @gender_ids])
     
-    @users = User.find(:all, :select => 'id, name, description')
-    @user_hash = Hash.new
-    for user in @users do
-      @user_hash[user.id] = user
-    end
-    
-    @restaurants = Restaurant.find(:all, :select => 'id, name')
-    @restaurant_hash = Hash.new
-    for restaurant in @restaurants do
-      @restaurant_hash[restaurant.id] = restaurant.name
-    end
+    create_user_hash
+    create_restaurant_hash
     
     # if listing doesn't exist, create one
     if @reservations.length == 0
@@ -41,4 +32,27 @@ class HomeController < ApplicationController
     end
   end
   
+  def search_my_meals
+    my_uid = params[:user_id]
+    create_user_hash
+    create_restaurant_hash
+    @my_meals = Reservation.where(["suggestor_id = ?", my_uid])
+  end
+  
+  private 
+    def create_restaurant_hash
+      @restaurants = Restaurant.find(:all, :select => 'id, name')
+      @restaurant_hash = Hash.new
+      for restaurant in @restaurants do
+        @restaurant_hash[restaurant.id] = restaurant.name
+      end
+    end
+    
+    def create_user_hash
+      @users = User.find(:all, :select => 'id, name, description')
+      @user_hash = Hash.new
+      for user in @users do
+        @user_hash[user.id] = user
+      end
+    end
 end
