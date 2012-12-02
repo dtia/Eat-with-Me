@@ -21,7 +21,7 @@ class HomeController < ApplicationController
     end
     
     @gender_ids = User.where(["gender = ? and gender_target = ?", gender_target, gender])
-    @restaurant_ids = Restaurant.where(["city = ?", city])     
+    @restaurant_ids = Restaurant.where(["city = ? and (cuisine = ? or name = ?)", city, cuisine, restaurant])     
     @reservations = Reservation.where(["restaurant_id in (?) and suggestor_id in (?)", @restaurant_ids, @gender_ids])
     
     create_user_hash
