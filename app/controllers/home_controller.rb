@@ -17,13 +17,13 @@ class HomeController < ApplicationController
       gender_target = 'female'
     end
     
-    @gender_ids = User.where(["gender = ?", gender_target])
+    @gender_ids = User.where(["gender = ? and gender_target = ?", gender_target, gender])
     @restaurant_ids = Restaurant.where(["city = ?", city])     
     @reservations = Reservation.where(["restaurant_id in (?) and suggestor_id in (?)", @restaurant_ids, @gender_ids])
     
     # if listing doesn't exist, create one
     if @reservations.length == 0
-      uid = User.get_or_create_user(uid, name, city, gender)
+      uid = User.get_or_create_user(uid, name, city, gender, gender_target)
       restaurant_id = Restaurant.get_or_create_restaurant(restaurant, city, cuisine)
       Reservation.create_listing(uid, date, restaurant, city, cuisine)
     end

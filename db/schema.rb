@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129055700) do
+ActiveRecord::Schema.define(:version => 20121202044118) do
 
   create_table "reservations", :force => true do |t|
     t.date     "date"
@@ -36,8 +36,9 @@ ActiveRecord::Schema.define(:version => 20121129055700) do
     t.integer  "age"
     t.text     "gender"
     t.text     "city"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "gender_target"
   end
 
 end
