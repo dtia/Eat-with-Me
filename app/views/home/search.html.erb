@@ -11,7 +11,7 @@
 			    <tr>
 					<td><<%= "img src=https://graph.facebook.com/" + listing.suggestor_id.to_s() + "/picture" %>></td>
 					<td><a href="#userInfo<%= listing.suggestor_id %>" data-backdrop="true" data-keyboard="true" data-toggle="modal"><%= @user_hash[listing.suggestor_id].name %></a></td>
-					<td><%= @restaurant_hash[listing.restaurant_id] %></td>
+					<td><a href="#restaurant<%= @restaurant_locu_hash[listing.restaurant_id] %>" data-backdrop="true" data-keyboard="true" data-toggle="modal"><%= @restaurant_hash[listing.restaurant_id] %></a></td>
 					<td><%= listing.date %></td>
 			    </tr>
 				<div id="userInfo<%= listing.suggestor_id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -43,8 +43,7 @@
 	</div>
 	
     <% for res in @restaurants %>
-      <% if res.id.to_s.length > 4 %>
-      <div id="restaurant<%= restaurant_locu_hash[res.id] %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div id="restaurant<%= @restaurant_locu_hash[res.id] %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
           <h3 id="myModalLabel"><%= res.name %></h3>
@@ -58,12 +57,13 @@
       </div>
       <script>
       $("#restaurant<%= res.id %>").ready(function(){
-        $.getJSON("locuvenue/<%= restaurant_locu_hash[res.id] %>.json", function(data) {
-          alert(data.objects.phone);
+        var locu_id = "<%= @restaurant_locu_hash[res.id] %>";
+        alert(locu_id);
+        $.getJSON("/locuvenue/" + locu_id + ".json", function(data) {
+        //  alert(data.objects.phone);
         });
       });
       </script>
-      <% end %>
     <% end %>
   </body>
 </html>

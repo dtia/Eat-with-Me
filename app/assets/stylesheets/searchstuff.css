@@ -29,3 +29,7 @@ label.error {
 	font-color: white;
 	margin-left: 5px;
 }
+
+#restaurant {
+    width: 640px;    
+}
